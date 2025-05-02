@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحة تسبيح - مصطفى أحمد سيد</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .info {
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #555;
+    }
+    .tasbeeh {
+      margin: 20px auto;
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .tasbeeh h2 {
+      color: #27ae60;
+    }
+    .count {
+      font-size: 40px;
+      margin: 10px 0;
+      color: #333;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 25px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-subhan {
+      background-color: #3498db;
+      color: white;
+    }
+    .btn-hamd {
+      background-color: #f39c12;
+      color: white;
+    }
+    .btn-akbar {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .btn-reset {
+      background-color: #7f8c8d;
+      color: white;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>صفحة تسبيح</h1>
+  <div class="info">
+    <p>الاسم: مصطفى أحمد سيد</p>
+    <p>الرقم الجامعي: 20231328</p>
+    <p>جروب: ب</p>
+  </div>
+
+  <div class="tasbeeh">
+    <h2>سبحان الله</h2>
+    <div id="countSubhan" class="count">0</div>
+    <button class="btn-subhan" onclick="increase('subhan')">سبّح</button>
+  </div>
+
+  <div class="tasbeeh">
+    <h2>الحمد لله</h2>
+    <div id="countHamd" class="count">0</div>
+    <button class="btn-hamd" onclick="increase('hamd')">احمد</button>
+  </div>
+
+  <div class="tasbeeh">
+    <h2>الله أكبر</h2>
+    <div id="countAkbar" class="count">0</div>
+    <button class="btn-akbar" onclick="increase('akbar')">كبّر</button>
+  </div>
+
+  <button class="btn-reset" onclick="resetAll()">إعادة الضبط</button>
+
+  <script>
+    let counts = { subhan: 0, hamd: 0, akbar: 0 };
+
+    function increase(type) {
+      counts[type]++;
+      document.getElementById('count' + capitalize(type)).textContent = counts[type];
+    }
+
+    function resetAll() {
+      counts = { subhan: 0, hamd: 0, akbar: 0 };
+      document.getElementById('countSubhan').textContent = 0;
+      document.getElementById('countHamd').textContent = 0;
+      document.getElementById('countAkbar').textContent = 0;
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+  </script>
+
+</body>
+</html>
